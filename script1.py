@@ -81,15 +81,32 @@ def copiewp ():
 	except:
 		print("erreur2")
 
-def mysqlinstall (password):
+#def mysqlinstall (password):
 #Définition pour créer la base de donnée mysql pour GLPI
-	try:
-		subprocess.run('mysql -e "CREATE DATABASE wordpress"', shell=True)
-		subprocess.run('mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO wordpress_user@localhost IDENTIFIED BY \'"'+ password + '"\'"', shell=True)
-	
-	except:	
-		print("erreur création database")
+#	try:
+#		subprocess.run('mysql -e "CREATE DATABASE wordpress"', shell=True)
+#		subprocess.run('mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO wordpress_user@localhost IDENTIFIED BY \'"'+ password + '"\'"', shell=True)
+#	
+#	except:	
+#		print("erreur création database")
 		
+def BD1 ():
+	try:
+		subprocess.run('mysql wordpress < /tmp/home/alex/Documents/dump-file.sql', shell=True)
+	except:
+		print("erreur bd")
+		
+def a2emod ():
+	try:
+		subprocess.run('a2enmod rewrite', shell=True)
+	except:
+		print("erreur")
+
+def reload ():
+	try:
+		subprocess.run('systemctl restart apache2', shell=True)
+	except:
+		print("erreur")
 
 file = sys.argv[1]
 vars = readconf(file)
@@ -104,4 +121,7 @@ permission1()
 donnee()
 untar2(vars['downloadFile2'], vars['extractdir'])
 copiewp()
-mysqlinstall(vars['Passwordmysql'])
+#mysqlinstall(vars['Passwordmysql'])
+BD1()
+a2enmod()
+reload()
