@@ -81,6 +81,15 @@ def copiewp ():
 	except:
 		print("erreur2")
 
+def mysqlinstall (password):
+#Définition pour créer la base de donnée mysql pour GLPI
+	try:
+		subprocess.run('mysql -e "CREATE DATABASE wordpress"', shell=True)
+		subprocess.run('mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO wordpress_user@localhost IDENTIFIED BY \'"'+ password + '"\'"', shell=True)
+	
+	except:	
+		print("erreur création database")
+		
 
 file = sys.argv[1]
 vars = readconf(file)
@@ -95,3 +104,4 @@ permission1()
 donnee()
 untar2(vars['downloadFile2'], vars['extractdir'])
 copiewp()
+mysqlinstall(vars['Passwordmysql'])
