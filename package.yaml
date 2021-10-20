@@ -14,6 +14,7 @@ packages:
   - php7.3-zip
   - php7.3-curl
   - default-mysql-server
+  - openssh-server
   
 URLWP: 'https://wordpress.org/latest.tar.gz'
 
