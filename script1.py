@@ -81,14 +81,14 @@ def copiewp ():
 	except:
 		print("erreur2")
 
-#def mysqlinstall (password):
-#Définition pour créer la base de donnée mysql pour GLPI
-#	try:
-#		subprocess.run('mysql -e "CREATE DATABASE wordpress"', shell=True)
-#		subprocess.run('mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO wordpress_user@localhost IDENTIFIED BY \'"'+ password + '"\'"', shell=True)
-#	
-#	except:	
-#		print("erreur création database")
+def mysqlinstall (password):
+Définition pour créer la base de donnée mysql pour GLPI
+	try:
+		subprocess.run('mysql -e "CREATE DATABASE wordpress"', shell=True)
+		subprocess.run('mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO wordpress_user@localhost IDENTIFIED BY \'"'+ password + '"\'"', shell=True)
+	
+	except:	
+		print("erreur création database")
 		
 def BD1 ():
 	try:
@@ -96,7 +96,7 @@ def BD1 ():
 	except:
 		print("erreur bd")
 		
-def a2emod ():
+def a2enmod ():
 	try:
 		subprocess.run('a2enmod rewrite', shell=True)
 	except:
