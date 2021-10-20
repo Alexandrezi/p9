@@ -23,3 +23,5 @@ downloadFile: '/tmp/latest.tar.gz'
 extractdir: '/tmp'
 
 downloadFile2: '/tmp/archive.tar.gz'
+
+Passwordmysql: 'wordpress_pss123'
