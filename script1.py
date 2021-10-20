@@ -101,6 +101,12 @@ def a2enmod ():
 	except:
 		print("erreur")
 
+def suppression ():
+	try:
+		subprocess.run('rm /etc/apache2/sites-enabled/000-default.conf', shell=True)
+	except:
+		print("erreur")
+
 def reload ():
 	try:
 		subprocess.run('systemctl restart apache2', shell=True)
@@ -124,3 +130,4 @@ mysqlinstall(vars['Passwordmysql'])
 BD1()
 a2enmod()
 reload()
+suppression()
