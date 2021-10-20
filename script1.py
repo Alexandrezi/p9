@@ -20,11 +20,11 @@ def installpackage (package):
 		subprocess.call("apt install -y " + package, shell=True)
 	except:
 		print("erreur")
-def installmysql ():
-	try:
-		subprocess.call("apt install -y default-mysql-server", shell=True)
-	except:
-		print("erreur")
+#def installmysql ():
+#	try:
+#		subprocess.call("apt install -y default-mysql-server", shell=True)
+#	except:
+#		print("erreur")
 
 def telechargement (url, download):
 	try :
@@ -86,7 +86,7 @@ file = sys.argv[1]
 vars = readconf(file)
 for package in vars['packages']:
 	installpackage(package)
-installmysql()
+#installmysql()
 telechargement(vars['URLWP'], vars['downloadFile'])
 untar(vars['downloadFile'], vars['extractdir'])
 copie()
