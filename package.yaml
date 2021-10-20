@@ -13,7 +13,7 @@ packages:
   - php7.3-ldap
   - php7.3-zip
   - php7.3-curl
-
+  - default-mysql-server
 URLWP: 'https://wordpress.org/latest.tar.gz'
 
 downloadFile: '/tmp/latest.tar.gz'
