@@ -85,19 +85,31 @@ def mysqlinstall (password):
 	try:
 		subprocess.run('mysql -e "CREATE DATABASE wordpress"', shell=True)
 		subprocess.run('mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO wordpress_user@localhost IDENTIFIED BY \'"'+ password + '"\'"', shell=True)
-	
-	except:	
+
+	except:
 		print("erreur création database")
-		
+
 def BD1 ():
 	try:
 		subprocess.run('mysql wordpress < /tmp/home/alex/Documents/dump-file.sql', shell=True)
 	except:
 		print("erreur bd")
-		
+
+def repertory ():
+	try:
+		subprocess.run('cp -r /tmp/home/alex/Documents/wordpress /var/www/html/', shell=True)
+	except:
+		print("oooo")
+
 def a2enmod ():
 	try:
 		subprocess.run('a2enmod rewrite', shell=True)
+	except:
+		print("erreur")
+
+def suppression ():
+	try:
+		subprocess.run('rm /etc/apache2/sites-enabled/000-default.conf', shell=True)
 	except:
 		print("erreur")
 
@@ -122,6 +134,8 @@ untar2(vars['downloadFile2'], vars['extractdir'])
 copiewp()
 mysqlinstall(vars['Passwordmysql'])
 BD1()
+repertory()
 a2enmod()
 reload()
+suppression()
 
