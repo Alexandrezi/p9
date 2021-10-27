@@ -62,7 +62,7 @@ def permission1 ():
 
 def donnee ():
 	try:
-		subprocess.call("scp alex@192.168.0.3:/home/alex/Documents/archive.tar.gz /tmp/archive.tar.gz", shell=True)
+		subprocess.call("scp alex@192.168.0.2:/home/alex/Documents/archive.tar.gz /tmp/archive.tar.gz", shell=True)
 	except:
 		print("erreur4")
 
