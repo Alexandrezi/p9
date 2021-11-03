@@ -31,3 +31,5 @@ WorkDirectory: '/tmp/home/alex/Documents'
 addipuser: 'alex@192.168.0.2'
 
 vardirectory: '/var/www/html'
+
+dirsitesenab: '/etc/apache2/sites-enabled'
