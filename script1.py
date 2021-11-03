@@ -50,13 +50,13 @@ def copie (VarDir):
 
 def permission (VarDir):
 	try:
-		subprocess.call("chown -R www-data:www-data '+VarDir+'/wordpress/", shell=True)
+		subprocess.call('chown -R www-data:www-data '+VarDir+'/wordpress/', shell=True)
 	except:
 		print("erreur2")
 
 def permission1 (VarDir):
 	try:
-		subprocess.call("chmod 755 -R '+VarDir+'/wordpress/", shell=True)
+		subprocess.call('chmod 755 -R '+VarDir+'/wordpress/', shell=True)
 	except:
 		print("erreur3")
 
