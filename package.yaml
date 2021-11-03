@@ -25,3 +25,5 @@ extractdir: '/tmp'
 downloadFile2: '/tmp/archive.tar.gz'
 
 Passwordmysql: 'password'
+
+WorkDirectory: '/tmp/home/alex/Documents
