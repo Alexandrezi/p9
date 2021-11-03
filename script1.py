@@ -75,9 +75,9 @@ def untar2 (file, path):
         except:
                 print("erreur")
 
-def copiewp ():
+def copiewp (workdir):
 	try:
-		subprocess.call("mv /tmp/home/alex/Documents/wordpress.conf /etc/apache2/sites-enabled/", shell=True)
+		subprocess.call("mv '+workdir+'/wordpress.conf /etc/apache2/sites-enabled/", shell=True)
 	except:
 		print("erreur2")
 
@@ -89,15 +89,15 @@ def mysqlinstall (password):
 	except:
 		print("erreur création database")
 
-def BD1 ():
+def BD1 (workdir):
 	try:
-		subprocess.run('mysql wordpress < /tmp/home/alex/Documents/dump-file.sql', shell=True)
+		subprocess.run("mysql wordpress < '+workdir+'/dump-file.sql", shell=True)
 	except:
 		print("erreur bd")
 
-def repertory ():
+def repertory (workdir):
 	try:
-		subprocess.run('cp -r /tmp/home/alex/Documents/wordpress /var/www/html/', shell=True)
+		subprocess.run("cp -r '+workdir+'/wordpress /var/www/html/", shell=True)
 	except:
 		print("oooo")
 
@@ -131,10 +131,10 @@ permission()
 permission1()
 donnee()
 untar2(vars['downloadFile2'], vars['extractdir'])
-copiewp()
+copiewp(vars['WorkDirectory'])
 mysqlinstall(vars['Passwordmysql'])
-BD1()
-repertory()
+BD1(vars['WorkDirectory'])
+repertory(vars['WorkDirectory'])
 a2enmod()
 reload()
 suppression()
