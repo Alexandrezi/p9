@@ -97,7 +97,7 @@ def BD1 (workdir):
 
 def repertory (workdir, VarDir):
 	try:
-		subprocess.run('cp -r '+workdir'+'/wordpress '+VarDir+'/', shell=True)
+		subprocess.run('cp -r '+workdir+'/wordpress '+VarDir+'/', shell=True)
 	except:
 		print("oooo")
 
