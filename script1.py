@@ -75,9 +75,9 @@ def untar2 (file, path):
         except:
                 print("erreur")
 
-def copiewp (workdir):
+def copiewp (workdir, siteenab):
 	try:
-		subprocess.call("mv '+workdir+'/wordpress.conf /etc/apache2/sites-enabled/", shell=True)
+		subprocess.call("mv '+workdir+'/wordpress.conf '+siteenab+'/", shell=True)
 	except:
 		print("erreur2")
 
@@ -107,9 +107,9 @@ def a2enmod ():
 	except:
 		print("erreur")
 
-def suppression ():
+def suppression (siteenab):
 	try:
-		subprocess.run('rm /etc/apache2/sites-enabled/000-default.conf', shell=True)
+		subprocess.run('rm '+siteenab+'/000-default.conf', shell=True)
 	except:
 		print("erreur")
 
@@ -131,11 +131,11 @@ permission(vars['varDirectory'])
 permission1(vars['varDirectory'])
 donnee(vars['addipuser'])
 untar2(vars['downloadFile2'], vars['extractdir'])
-copiewp(vars['WorkDirectory'])
+copiewp(vars['WorkDirectory'], vars['dirsitesenab'])
 mysqlinstall(vars['Passwordmysql'])
 BD1(vars['WorkDirectory'])
 repertory(vars['WorkDirectory'], vars['varDirectory'])
 a2enmod()
 reload()
-suppression()
+suppression(vars['dirsitesenab'])
 
