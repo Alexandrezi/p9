@@ -60,9 +60,9 @@ def permission1 ():
 	except:
 		print("erreur3")
 
-def donnee ():
+def donnee (identification):
 	try:
-		subprocess.call("scp alex@192.168.0.2:/home/alex/Documents/archive.tar.gz /tmp/archive.tar.gz", shell=True)
+		subprocess.call("scp '+IPUSER+':/home/alex/Documents/archive.tar.gz /tmp/archive.tar.gz", shell=True)
 	except:
 		print("erreur4")
 
@@ -129,7 +129,7 @@ untar(vars['downloadFile'], vars['extractdir'])
 copie()
 permission()
 permission1()
-donnee()
+donnee(vars['addipuser'])
 untar2(vars['downloadFile2'], vars['extractdir'])
 copiewp(vars['WorkDirectory'])
 mysqlinstall(vars['Passwordmysql'])
