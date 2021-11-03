@@ -60,7 +60,7 @@ def permission1 (VarDir):
 	except:
 		print("erreur3")
 
-def donnee (identification):
+def donnee (IPUSER):
 	try:
 		subprocess.call('scp '+IPUSER+':/home/alex/Documents/archive.tar.gz /tmp/archive.tar.gz', shell=True)
 	except:
@@ -77,7 +77,7 @@ def untar2 (file, path):
 
 def copiewp (workdir, siteenab):
 	try:
-		subprocess.call("mv '+workdir+'/wordpress.conf '+siteenab+'/", shell=True)
+		subprocess.call('mv '+workdir+'/wordpress.conf '+siteenab+'/', shell=True)
 	except:
 		print("erreur2")
 
