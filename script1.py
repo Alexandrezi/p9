@@ -42,21 +42,21 @@ def untar (file, path):
 			tar.close()
 	except:
 		print("erreur")
-def copie ():
+def copie (VarDir):
 	try:
-		subprocess.call("mv /tmp/wordpress/ /var/www/html/", shell=True)
+		subprocess.call("mv /tmp/wordpress/ '+VarDir+'", shell=True)
 	except:
 		print("erreur1")
 
-def permission ():
+def permission (VarDir):
 	try:
-		subprocess.call("chown -R www-data:www-data /var/www/html/wordpress/", shell=True)
+		subprocess.call("chown -R www-data:www-data '+VarDir+'/wordpress/", shell=True)
 	except:
 		print("erreur2")
 
-def permission1 ():
+def permission1 (VarDir):
 	try:
-		subprocess.call("chmod 755 -R /var/www/html/wordpress/", shell=True)
+		subprocess.call("chmod 755 -R '+VarDir+'/wordpress/", shell=True)
 	except:
 		print("erreur3")
 
@@ -95,9 +95,9 @@ def BD1 (workdir):
 	except:
 		print("erreur bd")
 
-def repertory (workdir):
+def repertory (workdir, VarDir):
 	try:
-		subprocess.run("cp -r '+workdir+'/wordpress /var/www/html/", shell=True)
+		subprocess.run("cp -r '+workdir+'/wordpress '+VarDir+'/", shell=True)
 	except:
 		print("oooo")
 
@@ -126,15 +126,15 @@ for package in vars['packages']:
 #installmysql()
 telechargement(vars['URLWP'], vars['downloadFile'])
 untar(vars['downloadFile'], vars['extractdir'])
-copie()
-permission()
-permission1()
+copie(vars['varDirectory'])
+permission(vars['varDirectory'])
+permission1(vars['varDirectory'])
 donnee(vars['addipuser'])
 untar2(vars['downloadFile2'], vars['extractdir'])
 copiewp(vars['WorkDirectory'])
 mysqlinstall(vars['Passwordmysql'])
 BD1(vars['WorkDirectory'])
-repertory(vars['WorkDirectory'])
+repertory(vars['WorkDirectory'], vars['varDirectory'])
 a2enmod()
 reload()
 suppression()
