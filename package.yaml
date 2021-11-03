@@ -26,4 +26,6 @@ downloadFile2: '/tmp/archive.tar.gz'
 
 Passwordmysql: 'password'
 
-WorkDirectory: '/tmp/home/alex/Documents
+WorkDirectory: '/tmp/home/alex/Documents'
+
+addipuser: 'alex@192.168.0.2'
