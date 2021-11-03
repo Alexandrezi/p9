@@ -44,7 +44,7 @@ def untar (file, path):
 		print("erreur")
 def copie (VarDir):
 	try:
-		subprocess.call("mv /tmp/wordpress/ '+VarDir+'", shell=True)
+		subprocess.call('mv /tmp/wordpress/ '+VarDir+'', shell=True)
 	except:
 		print("erreur1")
 
@@ -62,7 +62,7 @@ def permission1 (VarDir):
 
 def donnee (identification):
 	try:
-		subprocess.call("scp '+IPUSER+':/home/alex/Documents/archive.tar.gz /tmp/archive.tar.gz", shell=True)
+		subprocess.call('scp '+IPUSER+':/home/alex/Documents/archive.tar.gz /tmp/archive.tar.gz', shell=True)
 	except:
 		print("erreur4")
 
@@ -91,13 +91,13 @@ def mysqlinstall (password):
 
 def BD1 (workdir):
 	try:
-		subprocess.run("mysql wordpress < '+workdir+'/dump-file.sql", shell=True)
+		subprocess.run('mysql wordpress < '+workdir+'/dump-file.sql', shell=True)
 	except:
 		print("erreur bd")
 
 def repertory (workdir, VarDir):
 	try:
-		subprocess.run("cp -r '+workdir+'/wordpress '+VarDir+'/", shell=True)
+		subprocess.run('cp -r '+workdir'+'/wordpress '+VarDir+'/', shell=True)
 	except:
 		print("oooo")
 
