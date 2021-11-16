@@ -4,7 +4,7 @@ import subprocess
 
 def BD (workdir, login, password):
         try:
-                subprocess.run('mysqldump -u '+login+' -p'+password+' wordpress > '+workdir+'dump-file.sql', shell=True)
+                subprocess.run('mysqldump -u '+login+' wordpress > '+workdir+'/dump-file.sql', shell=True)
         except:
                 print("erreur")
 
